@@ -61,4 +61,10 @@ public class BankAccountSteps {
         assertEquals("The newly added bank account's information is not correct.", expectedAccount, actualAccount);
     }
 
+    @Given("^I have chosen (.*?)$")
+    public void i_have_chosen_organization(String organisation) throws Throwable {
+        dashBoardPage.selectOrganisation(organisation);
+    }
+
+
 }

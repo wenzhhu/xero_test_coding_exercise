@@ -53,20 +53,7 @@ public class EnterDetailsPage extends Page {
 
     private void selectAccountType(String type) {
         driver.findElement(By.cssSelector("div[data-automationid=accountType]")).findElement(By.tagName("input")).click();
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e1) {
-//            // TODO Auto-generated catch block
-//            e1.printStackTrace();
-//        }
-
-        System.err.println("what is div[data-automationid=accountType]");
-        System.err.println(driver.findElement(By.cssSelector("div[data-automationid=accountType]")));
         driver.findElements(By.tagName("li")).stream().filter(e -> e.getText().equals(type)).findFirst().get().click();
-//        WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
-//        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.cssSelector("div[data-automationid=accountType]")).findElement(By.tagName("input")), type));
-
-
     }
 
     private void inputAccountName(String name) {
