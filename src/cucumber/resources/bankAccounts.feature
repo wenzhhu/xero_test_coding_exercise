@@ -13,10 +13,10 @@ Feature: manage bank accounts
 
         Examples:
             | bank name | account name              | account number | currency | type                  |
-            | ANZ (NZ)  | test account Everyday     | 1              | NZD      | Everyday (day-to-day) |
-            | ANZ (NZ)  | test account Loan         | 1              | NZD      | Loan                  |
-            | ANZ (NZ)  | test account Term Deposit | 1              | NZD      | Term Deposit          |
-            | ANZ (NZ)  | test account Credit Card  | 1              | NZD      | Credit Card           |
-            | ANZ (NZ)  | test account Other        | 1              | NZD      | Other                 |
+            | ANZ (NZ)  | test account Everyday     | 1234           | NZD      | Everyday (day-to-day) |
+            | ANZ (NZ)  | test account Loan         | 1234           | NZD      | Loan                  |
+            | ANZ (NZ)  | test account Term Deposit | 1234           | NZD      | Term Deposit          |
+            | ANZ (NZ)  | test account Credit Card  | 1234           | NZD      | Credit Card           |
+            | ANZ (NZ)  | test account Other        | 1234           | NZD      | Other                 |
     #        | ANZ (NZ)  | test account2 | 12345678       | NZD      | Other |
 

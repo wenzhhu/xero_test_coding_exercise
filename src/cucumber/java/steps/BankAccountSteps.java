@@ -53,19 +53,12 @@ public class BankAccountSteps {
     public void i_should_see_the_newly_added_bank_account_displayed_on_page_Accounts_Bank_Accounts(String bankName, String accountName,
             String accountNunmber, String currency, String type) throws Throwable {
         BankAccount actualAccount = bankAccountsPage.findBankAccount(accountName).orElseThrow(() -> new RuntimeException("unable to find bank account with account name: " + accountName));
+        if (type.equals("Credit Card")) {
+            accountNunmber = "XXXX-XXXX-XXXX-" + accountNunmber;
+        }
+
         BankAccount expectedAccount = new BankAccount(bankName, accountName, accountNunmber, currency, type);
         assertEquals("The newly added bank account's information is not correct.", expectedAccount, actualAccount);
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

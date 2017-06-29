@@ -1,11 +1,9 @@
 package pages.accounts.bank.add;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,7 +25,7 @@ public class EnterDetailsPage extends Page {
     public BankAccountsPage setAccountDetails(BankAccount account) {
         inputAccountName(account.getName());
         selectAccountType(account.getType());
-        inputAccountNumber(account.getNumber());
+        inputAccountNumber(account.getType(), account.getNumber());
 
         return clickContinue();
     }
@@ -35,22 +33,20 @@ public class EnterDetailsPage extends Page {
     private BankAccountsPage clickContinue() {
         continueButtonWebElement.click();
 
-//        try {
-//            Thread.sleep(60*1000);
-//        } catch (InterruptedException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-
-      WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
-      wait.until(ExpectedConditions.urlContains("https://go.xero.com/Bank/BankAccounts.aspx?confirmBankAccountID"));
-
+        WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
+        wait.until(ExpectedConditions.urlContains("https://go.xero.com/Bank/BankAccounts.aspx?confirmBankAccountID"));
 
         return new BankAccountsPage(driver, pageUrls);
     }
 
-    private void inputAccountNumber(String number) {
-        WebElement accountNumberInput = driver.findElement(By.cssSelector("div[data-automationid=accountNumber]")).findElement(By.tagName("input"));
+    private void inputAccountNumber(String accountType, String number) {
+        WebElement accountNumberInput;
+
+        if (!accountType.equals("Credit Card")) {
+            accountNumberInput = driver.findElement(By.cssSelector("div[data-automationid=accountNumber]")).findElement(By.tagName("input"));
+        } else {
+            accountNumberInput = driver.findElement(By.cssSelector("div[data-automationid=creditCardNumber]")).findElement(By.tagName("input"));
+        }
         accountNumberInput.sendKeys(number);
         accountNumberInput.click();
     }
