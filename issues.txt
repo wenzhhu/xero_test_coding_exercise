@@ -1,0 +1,2 @@
+1. Looks like the currency is not shown for created bank account.
+Probably because NZD is the only option available for now?
