@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriverException;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
+import pages.LoginPage;
 import support.KnowsTheDomain;
 
 public class AccountResetHooks {
@@ -16,7 +17,7 @@ public class AccountResetHooks {
 
     @Before
     public void reset(Scenario scenario) {
-
+     //   new LoginPage(helper.getWebDriver(), helper.getPageUrls()).login(email, password)
     }
 
 }

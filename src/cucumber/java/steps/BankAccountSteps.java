@@ -66,5 +66,10 @@ public class BankAccountSteps {
         dashBoardPage.selectOrganisation(organisation);
     }
 
+    @Given("^I have deleted all test bank accounts under all organisations$")
+    public void i_have_deleted_all_test_bank_accounts_under_all_organisations() throws Throwable {
+        dashBoardPage.deleteAllTestBankAccountsUnderAllOrganisations();
+    }
+
 
 }

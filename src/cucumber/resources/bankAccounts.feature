@@ -4,6 +4,7 @@ Feature: manage bank accounts
 
     Background:
         Given I have logined as user wenzhhu@gmail.com with password Dlm@1003
+        And I have deleted all test bank accounts under all organisations
         And I have navigated to page Accounts/Bank Accounts
 
     @Positive
@@ -19,7 +20,7 @@ Feature: manage bank accounts
        #     | Stephen Hu   | ANZ (NZ)  | test account Term Deposit (SH) | 1234           | NZD      | Term Deposit          |
      #       | Stephen Hu   | ANZ (NZ)  | test account Credit Card (SH)  | 1234           | NZD      | Credit Card           |
       #      | Stephen Hu   | ANZ (NZ)  | test account Other (SH)        | 1234           | NZD      | Other                 |
-            | Test 2       | ANZ (NZ)  | test account Everyday (T2)     | 1234           | NZD      | Everyday (day-to-day) |
+      #      | Test 2       | ANZ (NZ)  | test account Everyday (T2)     | 1234           | NZD      | Everyday (day-to-day) |
       #      | Test 2       | ANZ (NZ)  | test account Loan (T2)         | 1234           | NZD      | Loan                  |
      #       | Test 2       | ANZ (NZ)  | test account Term Deposit (T2) | 1234           | NZD      | Term Deposit          |
      #       | Test 2       | ANZ (NZ)  | test account Credit Card (T2)  | 1234           | NZD      | Credit Card           |
