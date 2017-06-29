@@ -2,7 +2,6 @@ package domain;
 
 
 public class BankAccountBuilder {
-
     private String bank;
     private String name;
     private String number;
@@ -33,6 +32,11 @@ public class BankAccountBuilder {
 
     public BankAccountBuilder withCurrency(String currency) {
         this.currency = currency;
+        return this;
+    }
+
+    public BankAccountBuilder withType(String type) {
+        this.type = type;
         return this;
     }
 
