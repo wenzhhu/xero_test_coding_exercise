@@ -41,7 +41,7 @@ public class EnterDetailsPage extends Page {
     }
 
     private void inputAccountNumber(String number) {
-        driver.findElement(By.cssSelector("div[data-automationid=accountName]")).findElement(By.tagName("input")).sendKeys(number);;
+        driver.findElement(By.cssSelector("div[data-automationid=accountNumber]")).findElement(By.tagName("input")).sendKeys(number);;
     }
 
     private void selectAccountType(String type) {
@@ -66,6 +66,6 @@ public class EnterDetailsPage extends Page {
     }
 
     private void inputAccountName(String name) {
-        driver.findElement(By.cssSelector("div[data-automationid=accountNumber]")).findElement(By.tagName("input")).sendKeys(name);;
+        driver.findElement(By.cssSelector("div[data-automationid=accountName]")).findElement(By.tagName("input")).sendKeys(name);;
     }
 }
