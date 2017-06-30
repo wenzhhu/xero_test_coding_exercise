@@ -5,7 +5,7 @@ Feature: manage bank accounts
     Background:
         Given I have logined as user wenzhhu@gmail.com with password Dlm@1003
         And I have deleted all test bank accounts under all organisations
-        And I have navigated to page Accounts/Bank Accounts
+   #     And I have navigated to page Accounts/Bank Accounts
 
     @Positive @Lengthy
     Scenario Outline: add "ANZ (NZ)" bank accounts for any Xero organisations
@@ -35,4 +35,8 @@ Feature: manage bank accounts
         Examples:
             | organisation | bank name | account name                   | account number | currency | type                  |
             | Stephen Hu   | ANZ (NZ)  | test account Everyday (SH)     | 1234           | NZD      | Everyday (day-to-day) |
-#            | Test 2       | ANZ (NZ)  | test account Everyday (T2)     | 1234           | NZD      | Everyday (day-to-day) |
+            | Test 2       | ANZ (NZ)  | test account Everyday (T2)     | 1234           | NZD      | Everyday (day-to-day) |
+
+    @Debugging
+    Scenario: Debugging
+        Given I'm debugging

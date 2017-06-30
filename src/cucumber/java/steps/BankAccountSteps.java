@@ -22,7 +22,7 @@ public class BankAccountSteps {
     private final EventFiringWebDriver webDriver;
     private LoginPage loginPage;
     private DashBoardPage dashBoardPage;
-    private BankAccountsPage bankAccountsPage;
+  //  private BankAccountsPage bankAccountsPage;
 
     public BankAccountSteps(KnowsTheDomain helper) {
         this.helper = helper;
@@ -39,20 +39,20 @@ public class BankAccountSteps {
 
     @And("^I have navigated to page Accounts/Bank Accounts$")
     public void i_have_navigated_to_page_Accounts_Bank_Accounts() throws Throwable {
-        bankAccountsPage = new BankAccountsPage(webDriver, helper.getPageUrls());
+     //   bankAccountsPage = new BankAccountsPage(webDriver, helper.getPageUrls());
     }
 
     @When("^I try to add an new bank account with (.*?), (.*?), (.*?), (.*?) and (.*?)$")
     public void i_try_to_add_an_new_bank_account(String bankName, String accountName,
                                                  String accountNunmber, String currency, String type) throws Throwable {
         BankAccount account = BankAccountBuilder.any().withBank(bankName).withName(accountName).withNumber(accountNunmber).withCurrency(currency).withType(type).build();
-        bankAccountsPage.addBankAccount(account);
+        new BankAccountsPage(webDriver, helper.getPageUrls()).get().addBankAccount(account);
     }
 
     @Then("^I should see the newly added bank account displayed on page Accounts/Bank Accounts with correct (.*?), (.*?), (.*?), (.*?) and (.*?)$")
     public void i_should_see_the_newly_added_bank_account_displayed_on_page_Accounts_Bank_Accounts(String bankName, String accountName,
             String accountNunmber, String currency, String type) throws Throwable {
-        BankAccount actualAccount = bankAccountsPage.findBankAccount(accountName).orElseThrow(() -> new RuntimeException("unable to find bank account with account name: " + accountName));
+        BankAccount actualAccount = new BankAccountsPage(webDriver, helper.getPageUrls()).findBankAccount(accountName).orElseThrow(() -> new RuntimeException("unable to find bank account with account name: " + accountName));
         if (type.equals("Credit Card")) {
             accountNunmber = "XXXX-XXXX-XXXX-" + accountNunmber;
         }
@@ -70,6 +70,12 @@ public class BankAccountSteps {
     public void i_have_deleted_all_test_bank_accounts_under_all_organisations() throws Throwable {
         dashBoardPage.deleteAllTestBankAccountsUnderAllOrganisations();
     }
+
+    @Given("^I'm debugging$")
+    public void i_m_debugging() throws Throwable {
+    //    Thread.sleep(500 * 1000);
+    }
+
 
 
 }

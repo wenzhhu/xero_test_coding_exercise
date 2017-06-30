@@ -31,14 +31,20 @@ public class BankAccountsPage extends Page {
 
     public BankAccountsPage(WebDriver driver, PageUrls pageUrls) {
         super(driver, pageUrls);
-        driver.get(pageUrls.getBankAccountsPageUrl());
 
+
+    }
+
+    public BankAccountsPage get() {
+        driver.get(pageUrls.getBankAccountsPageUrl());
         WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("title")));
         } catch (TimeoutException e) {
             throw new RuntimeException("unable to access Bank Accounts page with url: " + pageUrls.getBankAccountsPageUrl(), e);
         }
+
+        return this;
     }
 
     public Optional<BankAccount> findBankAccount(String accountName) {

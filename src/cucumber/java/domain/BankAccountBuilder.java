@@ -1,6 +1,5 @@
 package domain;
 
-
 public class BankAccountBuilder {
     private String bank;
     private String name;
