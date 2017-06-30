@@ -19,7 +19,7 @@ Test steps:
 4. set JAVA_HOME to the installed JDK 8
 - on Windows, set JAVA_HOME=<PATH_TO_JDK_8>, or
 - on Mac, export JAVA_HOME=<PATH_TO_JDK_8>
-5. cd <root_dir_to_workspace>
+5. cd <root_dir_of_repo>
 6. <gradle_dir>/bin/gradle cucumber -Duser.email=<your_xero_user_email> -Duser.password=<your_xero_user_password>
 - Note: it is assumed that there are two organisations under your xero account: "Stephen Hu" and "Test 2"
 7. after test completes, test reports can be view at ./out/index.html
