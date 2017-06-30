@@ -13,7 +13,6 @@ import pages.Page;
 import pages.PageUrls;
 
 public class FindYourBankPage extends Page {
-    private static final int DEFAULT_TIMEOUT = 5; // seconds
 
     @FindBy(className = "ba-banklist--item")
     public WebElement bankListWebElement;
@@ -23,8 +22,6 @@ public class FindYourBankPage extends Page {
     }
 
     public EnterDetailsPage selectBank(String bank) {
-        System.err.println("entering selectBank...");
-
         driver.findElements(By.className("ba-banklist--item")).stream().filter(e -> e.getText().equals(bank)).findFirst().get().click();
 
         WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);

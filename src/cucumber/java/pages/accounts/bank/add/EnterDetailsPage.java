@@ -13,7 +13,6 @@ import pages.PageUrls;
 import pages.accounts.bank.BankAccountsPage;
 
 public class EnterDetailsPage extends Page {
-    private static final int DEFAULT_TIMEOUT = 5; // seconds
 
     @FindBy(css = "a[data-automationid=continueButton]")
     public WebElement continueButtonWebElement;

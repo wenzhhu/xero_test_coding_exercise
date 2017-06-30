@@ -20,9 +20,6 @@ import pages.accounts.bank.add.EnterDetailsPage;
 import pages.accounts.bank.add.FindYourBankPage;
 
 public class BankAccountsPage extends Page {
-    private static final int DEFAULT_TIMEOUT = 5; // seconds
-
-
     @FindBy(id = "xui-searchfield-1018-inputEl")
     public WebElement bankInputWebElement;
 
@@ -31,11 +28,6 @@ public class BankAccountsPage extends Page {
 
     public BankAccountsPage(WebDriver driver, PageUrls pageUrls) {
         super(driver, pageUrls);
-
-
-    }
-
-    public BankAccountsPage get() {
         driver.get(pageUrls.getBankAccountsPageUrl());
         WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
         try {
@@ -43,13 +35,9 @@ public class BankAccountsPage extends Page {
         } catch (TimeoutException e) {
             throw new RuntimeException("unable to access Bank Accounts page with url: " + pageUrls.getBankAccountsPageUrl(), e);
         }
-
-        return this;
     }
 
     public Optional<BankAccount> findBankAccount(String accountName) {
-        System.err.println("entering findBankAccount... ");
-
         List<WebElement> bankWebElementsWithTheGivenName = driver.findElements(By.className("bank")).stream().filter(bankWebElement -> {
             return accountName.equals(getBankAccount(bankWebElement).getName());
         }).collect(Collectors.toList());

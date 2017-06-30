@@ -1,11 +1,10 @@
 @bankAccounts
 Feature: manage bank accounts
-    organizations should be able to manage their bank accounts
+    Xero users should be able to manage their bank accounts for all organisations
 
     Background:
         Given I have logined as user wenzhhu@gmail.com with password Dlm@1003
         And I have deleted all test bank accounts under all organisations
-   #     And I have navigated to page Accounts/Bank Accounts
 
     @Positive @Lengthy
     Scenario Outline: add "ANZ (NZ)" bank accounts for any Xero organisations

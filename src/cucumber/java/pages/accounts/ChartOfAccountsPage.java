@@ -18,8 +18,7 @@ public class ChartOfAccountsPage extends Page {
     @FindBy(linkText = "Delete")
     public WebElement accountsDeleteButtonWebElement;
 
-    @FindBy(id = "popupOK")
-    public WebElement popupOKButtonWebElement;
+    private static final By DELETE_POPUP_CONFIRM_OK_BUTTON_BY = By.id("popupOK");
 
     public ChartOfAccountsPage(WebDriver driver, PageUrls pageUrls) {
         super(driver, pageUrls);
@@ -37,7 +36,7 @@ public class ChartOfAccountsPage extends Page {
                 accountsToDelete.forEach(e -> e.findElements(By.tagName("td")).get(0).click());
                 accountsDeleteButtonWebElement.click();
 
-                waitAndClick(By.id("popupOK"), DEFAULT_TIMEOUT);
+                waitAndClick(DELETE_POPUP_CONFIRM_OK_BUTTON_BY, DEFAULT_TIMEOUT);
             }
     }
 
