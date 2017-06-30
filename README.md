@@ -17,8 +17,8 @@ Test steps:
 2. Install the latest Gradle (4.0)
 3. open a CLI window on Windows, or open a terminal on Mac OS
 4. set JAVA_HOME to the installed JDK 8
-4.1 on Windows, set JAVA_HOME=<PATH_TO_JDK_8>, or
-4.2 on Mac, export JAVA_HOME=<PATH_TO_JDK_8>
+- on Windows, set JAVA_HOME=<PATH_TO_JDK_8>, or
+- on Mac, export JAVA_HOME=<PATH_TO_JDK_8>
 5. cd <root_dir_to_workspace>
 6. <gradle_dir>/bin/gradle cucumber
 7. after test completes, test reports can be view at ./out/index.html
