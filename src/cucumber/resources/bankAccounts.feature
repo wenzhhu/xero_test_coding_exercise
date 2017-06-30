@@ -3,7 +3,7 @@ Feature: manage bank accounts
     Xero users should be able to manage their bank accounts for all organisations
 
     Background:
-        Given I have logined as user wenzhhu@gmail.com with password Dlm@1003
+        Given I have logined.
         And I have deleted all test bank accounts under all organisations
 
     @Positive @Lengthy
