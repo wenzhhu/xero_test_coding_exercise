@@ -23,3 +23,5 @@ Test steps:
 6. <gradle_dir>/bin/gradle cucumber -Duser.email=<your_xero_user_email> -Duser.password=<your_xero_user_password>
 - Note: it is assumed that there are two organisations under your xero account: "Stephen Hu" and "Test 2"
 7. after test completes, test reports can be view at ./out/index.html
+
+Note: The test will do cleanup work automatically (removing bank accounts created during testing), so the test could be run repeatedly without problem.
