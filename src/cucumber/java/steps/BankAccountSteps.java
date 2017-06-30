@@ -66,8 +66,15 @@ public class BankAccountSteps {
     @Given("^I'm debugging$")
     public void i_m_debugging() throws Throwable {
     //    Thread.sleep(500 * 1000);
+        System.out.println("user.email:" + System.getProperty("user.email"));
+        System.out.println("user.password:" + System.getProperty("user.password"));
     }
 
-
+    @Given("^I have logined\\.$")
+    public void i_have_logined() throws Throwable {
+        String email = System.getProperty("user.email");
+        String password = System.getProperty("user.password");
+        dashBoardPage = loginPage.login(email, password);
+    }
 
 }
