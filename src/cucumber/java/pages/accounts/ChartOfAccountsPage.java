@@ -2,7 +2,6 @@ package pages.accounts;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,8 +14,6 @@ import pages.Page;
 import pages.PageUrls;
 
 public class ChartOfAccountsPage extends Page {
-    private static final int DEFAULT_TIMEOUT = 15; // seconds
-
     @FindBy(id = "chartOfAccounts")
     public WebElement accountsTableWebElement;
 
@@ -33,7 +30,6 @@ public class ChartOfAccountsPage extends Page {
 
     public void deleteAllTestBankAccounts() {
             List<WebElement> accountRows = accountsTableWebElement.findElements(By.cssSelector("tbody tr"));
-            System.out.println("accountRows.size(): " + accountRows.size());
 
             List<WebElement> accountsToDelete = accountRows.stream().filter(e -> {
                return e.findElements(By.tagName("td")).get(1).getText().trim().isEmpty();

@@ -16,4 +16,8 @@ public class PageUrls {
     public String getChartOfAccountsPageUrl() {
         return "https://go.xero.com//GeneralLedger/ChartOfAccounts.aspx";
     }
+
+    public String getAddBankAccountsPageUrl() {
+        return "https://go.xero.com/Banking/Account/#find";
+    }
 }

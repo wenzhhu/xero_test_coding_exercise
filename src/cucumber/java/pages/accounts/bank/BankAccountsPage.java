@@ -66,7 +66,7 @@ public class BankAccountsPage extends Page {
     }
 
     public BankAccountsPage addBankAccount(BankAccount account) {
-        driver.get("https://go.xero.com/Banking/Account/#find");
+        driver.get(pageUrls.getAddBankAccountsPageUrl());
         try {
             WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("ba-banklist--item")));
