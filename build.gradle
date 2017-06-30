@@ -12,9 +12,12 @@ repositories {
    mavenLocal()
 }
 
+
 cucumber {
     formats = ['pretty', 'html:out']
     tags = ['@bankAccounts', '@Quick']
+    jvmOptions.systemProperties += ["user.email": System.getProperty("user.email")]
+    jvmOptions.systemProperties += ["user.password": System.getProperty("user.password")]
 }
 
 dependencies {
