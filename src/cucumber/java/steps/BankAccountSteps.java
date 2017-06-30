@@ -72,8 +72,17 @@ public class BankAccountSteps {
 
     @Given("^I have logined\\.$")
     public void i_have_logined() throws Throwable {
-        String email = System.getProperty("user.email");
-        String password = System.getProperty("user.password");
+        String email = System.getProperty("user.email", "");
+        String password = System.getProperty("user.password", "");
+
+        if (email.isEmpty()) {
+            throw new IllegalArgumentException("you must specify user.email on command line");
+        }
+
+        if (password.isEmpty()) {
+            throw new IllegalArgumentException("you must specify user.password on command line");
+        }
+
         dashBoardPage = loginPage.login(email, password);
     }
 
