@@ -2,14 +2,14 @@
 
 Supproted OS / Browser:
 -----------------------
-Windows / Firefox the latest (54.0.1) 32-bit
-Mac OS / Firefox the latest (54.0.1)
+- Windows / Firefox the latest (54.0.1) 32-bit
+- Mac OS / Firefox the latest (54.0.1)
 
 Verfied on:
 -----------
-Windows 7
-Windows 10
-Mac OS 10.11.6
+- Windows 7
+- Windows 10
+- Mac OS 10.11.6
 
 Test steps:
 -----------
