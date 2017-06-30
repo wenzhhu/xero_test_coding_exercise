@@ -14,7 +14,7 @@ repositories {
 
 cucumber {
     formats = ['pretty', 'html:out']
-    tags = ['@bankAccounts', '@Lengthy']
+    tags = ['@bankAccounts', '@Quick']
 }
 
 

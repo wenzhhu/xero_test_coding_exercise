@@ -7,16 +7,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.accounts.ChartOfAccountsPage;
 
 public class DashBoardPage extends Page {
-    private static final int DEFAULT_TIMEOUT = 25; // seconds
 
-    private static final By organisationChooserBy = By.className("org-name");
+    private static final By ORGANISATION_CHOOSER_BY = By.className("org-name");
 
     public DashBoardPage(WebDriver driver, PageUrls pageUrls) {
         super(driver, pageUrls);
@@ -24,7 +22,6 @@ public class DashBoardPage extends Page {
 
     public void selectOrganisation(String organisationName) {
         if (organisationName.equals(getCurrentOrganisation())) {
-            System.err.println("No need to change org since it's the current one: " + organisationName);
             return;
         }
 
@@ -42,9 +39,7 @@ public class DashBoardPage extends Page {
     }
 
     public void deleteAllTestBankAccountsUnderAllOrganisations() {
-        List<String> allOrganisations = getAllOrganisations();
-        System.err.println("show allOrganisations...");
-        allOrganisations.stream().forEach(System.err::println);
+        List<String> allOrganisations = getAllOrganisations();;
 
         allOrganisations.stream().forEach(e -> deleteAllTestBankAccounts(e));
     }
@@ -61,39 +56,23 @@ public class DashBoardPage extends Page {
     }
 
     private void deleteAllTestBankAccounts(String organisation) {
-        System.err.println("delete accounts for " + organisation);
         selectOrganisation(organisation);
         new ChartOfAccountsPage(driver, pageUrls).deleteAllTestBankAccounts();;
     }
 
-
-
-    private void waitAndClick(By byParent, By byChild, int seconds) {
-        System.err.println("double waitAndClick...");
-        WebDriverWait wait = new WebDriverWait(driver, seconds);
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(byParent).findElement(byChild)));
-        WebElement e = driver.findElement(byParent).findElement(byChild);
-
-        Actions builder = new Actions(driver);
-        builder.moveToElement(e).click();
-        System.err.println("done double waitAndClick...");
-      //  driver.findElement(by).click();
-    }
-
     private String getCurrentOrganisation() {
         WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(organisationChooserBy));
-        String currentOrganisation = driver.findElement(organisationChooserBy).getText();
-        System.err.println("getCurrentOrganisation: " + currentOrganisation);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(ORGANISATION_CHOOSER_BY));
+        String currentOrganisation = driver.findElement(ORGANISATION_CHOOSER_BY).getText();
+
         return currentOrganisation;
     }
 
     private boolean isOrganisationChooserExpanded() {
         WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
-        wait.until(ExpectedConditions.elementToBeClickable(organisationChooserBy));
-        WebElement parent = driver.findElement(organisationChooserBy).findElement(By.xpath("./.."));
+        wait.until(ExpectedConditions.elementToBeClickable(ORGANISATION_CHOOSER_BY));
+        WebElement parent = driver.findElement(ORGANISATION_CHOOSER_BY).findElement(By.xpath("./.."));
         String parentCss = parent.getAttribute("class");
-        System.out.println("parent css: " + parentCss);
 
         return parentCss.contains("open");
     }
@@ -103,11 +82,7 @@ public class DashBoardPage extends Page {
             return;
         }
 
-        waitAndClick(organisationChooserBy, DEFAULT_TIMEOUT);
-
-//        WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
-//        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(organisationChooserBy)));
-//        driver.findElement(organisationChooserBy).click();
+        waitAndClick(ORGANISATION_CHOOSER_BY, DEFAULT_TIMEOUT);
     }
 
     private void foldOrganisationChooser() {
@@ -115,11 +90,7 @@ public class DashBoardPage extends Page {
             return;
         }
 
-        waitAndClick(organisationChooserBy, DEFAULT_TIMEOUT);
-
-//        WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
-//        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(organisationChooserBy)));
-//        driver.findElement(organisationChooserBy).click();
+        waitAndClick(ORGANISATION_CHOOSER_BY, DEFAULT_TIMEOUT);
     }
 
     private void waitAndClick(By by, int seconds) {
