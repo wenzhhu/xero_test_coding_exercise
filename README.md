@@ -12,6 +12,7 @@ Windows 10
 Mac OS 10.11.6
 
 Test steps:
+-----------
 1. Install the latest JDK 8 (8u131)
 2. Install the latest Gradle (4.0)
 3. open a CLI window on Windows, or open a terminal on Mac OS
