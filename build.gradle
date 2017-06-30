@@ -17,7 +17,6 @@ cucumber {
     tags = ['@bankAccounts', '@Quick']
 }
 
-
 dependencies {
     cucumberRuntime 'info.cukes:cucumber-groovy:1.2.2'
     compile 'info.cukes:cucumber-groovy:1.2.2'
@@ -28,5 +27,4 @@ dependencies {
     cucumberRuntime 'org.picocontainer:picocontainer:2.14.2'
     cucumberRuntime 'info.cukes:cucumber-picocontainer:1.2.2'
     compile 'org.picocontainer:picocontainer:2.14.2'
-
 }

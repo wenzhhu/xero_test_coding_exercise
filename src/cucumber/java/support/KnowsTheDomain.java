@@ -11,8 +11,7 @@ public class KnowsTheDomain {
 
     public EventFiringWebDriver getWebDriver() {
         if (webDriver == null) {
-            System.setProperty("webdriver.gecko.driver",
-                    "src\\selenium\\geckodriver-v0.16.1-win32\\geckodriver.exe");
+           setFirefoxDriverBin();
            webDriver = new EventFiringWebDriver(new FirefoxDriver());
            webDriver.manage().window().maximize();
         }
@@ -21,5 +20,17 @@ public class KnowsTheDomain {
 
     public PageUrls getPageUrls() {
         return pageUrls;
+    }
+
+    private void setFirefoxDriverBin() {
+        if (RuntimeEnvironment.isWindows()) {
+            System.setProperty("webdriver.gecko.driver",
+                "src\\selenium\\geckodriver-v0.16.1-win32\\geckodriver.exe");
+        } else if (RuntimeEnvironment.isMac()) {
+            System.setProperty("webdriver.gecko.driver",
+                    "src/selenium/geckodriver-v0.17.0-macos/geckodriver");
+        } else {
+            throw new IllegalArgumentException("unsupported platform.");
+        }
     }
 }
