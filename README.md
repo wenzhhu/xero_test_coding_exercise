@@ -4,6 +4,7 @@ Supproted OS / Browser:
 -----------------------
 - Windows / Firefox the latest (54.0.1) 32-bit
 - Mac OS / Firefox the latest (54.0.1)
+- (Assuming Firefox is installed at default location.)
 
 Verfied on:
 -----------
