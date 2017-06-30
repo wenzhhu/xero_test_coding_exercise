@@ -7,8 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.Page;
 import pages.PageUrls;
@@ -39,11 +37,8 @@ public class ChartOfAccountsPage extends Page {
                 accountsToDelete.forEach(e -> e.findElements(By.tagName("td")).get(0).click());
                 accountsDeleteButtonWebElement.click();
 
-                WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
-                wait.until(ExpectedConditions.elementToBeClickable(By.id("popupOK")));
-                driver.findElement(By.id("popupOK")).click();
+                waitAndClick(By.id("popupOK"), DEFAULT_TIMEOUT);
             }
-
     }
 
 }

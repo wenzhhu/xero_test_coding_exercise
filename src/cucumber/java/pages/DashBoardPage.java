@@ -93,10 +93,6 @@ public class DashBoardPage extends Page {
         waitAndClick(ORGANISATION_CHOOSER_BY, DEFAULT_TIMEOUT);
     }
 
-    private void waitAndClick(By by, int seconds) {
-        WebDriverWait wait = new WebDriverWait(driver, seconds);
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(by)));
-        driver.findElement(by).click();
-    }
+
 
 }
